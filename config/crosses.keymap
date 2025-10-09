@@ -1,3 +1,4 @@
+#include <dt-bindings/zmk/mouse.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
@@ -8,98 +9,71 @@
     flavor = "balanced";
     quick-tap-ms = <150>;
 };
+/ {
+    chosen {
+        zmk,matrix_transform = &default_transform;
+
+        // zmk,matrix_transform = &five_column_transform;
+    };
+};
 
 / {
+    //  Add tri-layer behavior here
+
+    behaviors {
+        tri_layer: sl_layer {
+            compatible = "urob,zmk-behavior-simple-layer";
+            label = "TRI_LAYER";
+            layers = <1 2>;        // These are LWR and RSE layers
+            target-layer = <3>;    // Layer 3 will activate when both are held
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        Enter {
+            bindings = <&kp ENTER>;
+            key-positions = <21 20>;
+        };
+
+        Delete {
+            bindings = <&kp DELETE>;
+            key-positions = <24 11>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         layer_0 {
+            display-name = "QWERTY";
             bindings = <
-&kp X  &lt 3 Q  &kp W  &kp E         &kp R     &kp T        &kp Y      &kp U            &kp I      &kp O    &kp P      &kp X
-&kp X  &kp A    &kp S  &kp D         &kp F     &kp G        &kp H      &kp J            &kp K      &kp L    &kp ENTER  &kp X
-&kp X  &kp Z    &kp X  &mt K_COPY C  &kp V     &kp B        &kp N      &kp M            &kp COMMA  &kp DOT  &kp FSLH   &kp X
-                       &mkp MB1      &mkp MB2  &lt 1 ESC    &kp SPACE  &lt 2 BACKSPACE  &kp SPACE
+&mt ESC TAB     &kp Q  &kp W        &kp E         &kp R                       &kp T          &kp Y        &kp U                         &kp I      &kp O    &kp P     &kp BSPC
+&kp CAPSLOCK    &kp A  &kp S        &kp D         &mt LG(F) F                 &kp G          &kp H        &kp J                         &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LEFT_SHIFT  &kp Z  &mt K_CUT X  &mt K_COPY C  &mt K_PASTE V               &kp B          &kp N        &kp M                         &kp COMMA  &kp DOT  &kp FSLH  &kp RIGHT_SHIFT
+                                    &kp LEFT_ALT  &mt LEFT_COMMAND LG(SPACE)  &lt 1 SPACE    &lt 1 SPACE  &mt RIGHT_COMMAND LANGUAGE_1  &mo 2
             >;
         };
 
         layer_1 {
+            display-name = "NUMBER";
             bindings = <
-&kp X  &kp F1          &kp F2     &kp F3        &kp F4    &kp F5     &kp F6     &kp F7            &kp F8         &kp F9     &kp F10        &kp X
-&kp X  &kp N1          &kp N2     &kp N3        &kp N4    &kp N5     &kp N6     &kp N7            &kp N8         &kp N9     &kp N0         &kp X
-&kp X  &kp LEFT_SHIFT  &kp LCTRL  &kp LEFT_ALT  &kp CAPS  &kp TAB    &kp MINUS  &kp LEFT_BRACKET  &kp SEMICOLON  &kp COMMA  &kp BACKSLASH  &kp X
-                                  &none         &none     &none      &kp F11    &kp F12           &kp SPACE
+&mt F1 TAB  &mt F2 NUMBER_1  &mt F3 NUMBER_2  &mt F4 NUMBER_3  &mt F5 NUMBER_4  &mt F6 N5    &mt F7 NUMBER_6  &mt F8 N7                 &mt F9 N8             &mt F10 N9        &mt F11 N0         &mt F12 BACKSPACE
+&trans      &kp SLASH        &kp ASTERISK     &kp MINUS        &kp PLUS         &mkp LCLK    &mkp MB4         &none                     &kp UP_ARROW          &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH
+&trans      &none            &none            &none            &none            &mkp RCLK    &mkp MB5         &kp LEFT                  &kp DOWN              &kp RIGHT         &kp EQUAL          &trans
+                                              &kp LG(LS(N5))   &trans           &trans       &trans           &kp LG(LS(LC(NUMBER_4)))  &kp LG(LS(NUMBER_4))
             >;
         };
 
         layer_2 {
             bindings = <
-&none  &none  &none           &none           &none            &none            &none      &none     &none      &none       &none      &none
-&none  &none  &none           &kp UP_ARROW    &none            &kp PAGE_UP      &none      &none     &none      &none       &none      &none
-&none  &none  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp PAGE_DOWN    &kp EQUAL  &kp RBKT  &kp SQT    &kp PERIOD  &kp SLASH  &none
-                              &none           &none            &none            &none      &none     &kp SPACE
+&trans  &kp K_LOCK  &mt C_RW C_PREV       &mt C_PP C_PP         &mt C_FAST_FORWARD C_NEXT  &bt BT_SEL 0    &kp ASTERISK  &kp N7        &kp N8        &kp N9        &kp PLUS    &trans
+&trans  &none       &kp K_MUTE            &kp C_VOL_DN          &kp C_VOLUME_UP            &bt BT_SEL 1    &kp SLASH     &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp MINUS   &kp DOLLAR
+&trans  &none       &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_AL_CONTROL_PANEL     &bt BT_SEL 3    &kp EQUAL     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD  &kp COMMA
+                                          &trans                &trans                     &trans          &trans        &trans        &kp N0
             >;
         };
-
-        layer_3 {
-            bindings = <
-&none  &none  &none  &none  &none  &none    &none       &none         &none         &none         &none         &none
-&none  &none  &none  &none  &none  &none    &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &none
-&none  &none  &none  &none  &none  &none    &none       &none         &none         &none         &none         &none
-                     &none  &none  &none    &none       &none         &kp SPACE
-            >;
-        };
-
-        /* layer_2 {
-            bindings = <
-&none  &none   &none    &none   &none         &none         &kp N1         &none         &none     &none  &none   &to 0
-&none  &none   &none    &none   &none         &none         &none         &none          &rgb_ug RGB_BRD &rgb_ug RGB_BRI  &rgb_ug RGB_EFF   &rgb_ug RGB_TOG
-&none  &none   &none    &none   &none         &none         &none         &mkp LCLK     &mkp RCLK  &none  &none   &none
-&none  &none   &none    &none   &bt BT_NXT  &bt BT_CLR    &none         &none         &none     &none  &none   &none
-                                   &none         &none         &none         &none         &none
-                                                 &none         &none         &none
-            >;
-       
             
-        };
-
-       Mouse {
-            bindings = <
-&none        &none         &none         &none         &none      &none         &none       &none      &none         &none         &none         &none
-&none        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 3  &none      &bt BT_CLR    &bt BT_CLR  &none      &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0  &none
-&none        &trans        &trans        &mkp MCLK     &trans     &none         &none       &trans     &mkp MCLK     &trans        &trans        &none
-&bootloader  &trans        &mkp RCLK     &mo 4         &mkp LCLK  &mo 5         &mo 5       &mkp LCLK  &mo 4         &mkp RCLK     &trans        &bootloader
-                                         &mo 5         &mkp LCLK  &mkp RCLK     &mkp RCLK   &mkp LCLK
-                                                       &none      &trans        &trans
-            >;
-
-            
-        };
-
-        layer_4 {
-            bindings = <
-&trans  &trans  &trans     &trans     &trans     &trans       &trans     &trans     &trans     &trans     &trans  &trans
-&trans  &trans  &trans     &trans     &trans     &trans       &trans     &trans     &trans     &trans     &trans  &trans
-&trans  &trans  &trans     &mkp MCLK  &trans     &trans       &trans     &trans     &mkp MCLK  &trans     &trans  &trans
-&trans  &trans  &mkp RCLK  &trans     &mkp LCLK  &trans       &trans     &mkp LCLK  &trans     &mkp RCLK  &trans  &trans
-                           &trans     &mkp LCLK  &mkp RCLK    &mkp RCLK  &mkp LCLK
-                                      &trans     &trans       &trans
-            >;
-                
-                
-               
-        };
-
-        layer_5 {
-            bindings = <
-&trans  &trans  &trans     &trans     &trans     &trans       &trans     &trans     &trans     &trans     &trans  &trans
-&trans  &trans  &trans     &trans     &trans     &trans       &trans     &trans     &trans     &trans     &trans  &trans
-&trans  &trans  &trans     &mkp MCLK  &trans     &trans       &trans     &trans     &mkp MCLK  &trans     &trans  &trans
-&trans  &trans  &mkp RCLK  &trans     &mkp LCLK  &trans       &trans     &mkp LCLK  &trans     &mkp RCLK  &trans  &trans
-                           &trans     &mkp LCLK  &mkp RCLK    &mkp RCLK  &mkp LCLK
-                                      &trans     &trans       &trans
-            >;
-                
-                
-        };*/
     };
 };
