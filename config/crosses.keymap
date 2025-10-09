@@ -52,6 +52,16 @@
             bindings = <&mo 3>;
             key-positions = <36 41>;
         };
+
+        backspace2 {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <10 9>;
+        };
+
+        enter2 {
+            bindings = <&kp ENTER>;
+            key-positions = <22 21>;
+        };
     };
 
     keymap {
