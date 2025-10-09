@@ -58,26 +58,26 @@
 &kp TAB         &kp Q  &kp W  &kp E        &kp R         &kp T                       &kp Y     &kp U   &kp I        &kp O    &kp P     &kp BSPC
 &kp CAPSLOCK    &kp A  &kp S  &kp D        &kp F         &kp G                       &kp H     &kp J   &kp K        &kp L    &kp SEMI  &kp SQT
 &kp LEFT_SHIFT  &kp Z  &kp X  &kp C        &kp V         &kp B                       &kp N     &kp M   &kp COMMA    &kp DOT  &kp FSLH  &kp RIGHT_SHIFT
-                              &lt 1 SPACE  &kp LEFT_ALT  &mt LEFT_GUI C_AC_SEARCH    &kp RGUI  &tog 2  &lt 1 SPACE
+                              &lt 1 SPACE  &kp LEFT_ALT  &mt LEFT_GUI C_AC_SEARCH    &kp RGUI  &tog 0  &lt 1 SPACE
             >;
         };
 
         Secondary {
             display-name = "NUMBER";
             bindings = <
-&mt F1 TAB  &mt F2 NUMBER_1  &mt F3 NUMBER_2  &mt F4 NUMBER_3  &mt F5 NUMBER_4  &mt F6 N5         &mt F7 NUMBER_6           &mt F8 N7             &mt F9 N8     &mt F10 N9        &mt F11 N0         &mt F12 BACKSPACE
-&trans      &kp SLASH        &kp ASTERISK     &kp MINUS        &kp PLUS         &mkp LCLK         &mkp MB4                  &none                 &kp UP_ARROW  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH
-&trans      &none            &none            &none            &lt 2 V          &mkp RCLK         &mkp MB5                  &kp LEFT              &kp DOWN      &kp RIGHT         &kp EQUAL          &trans
-                                              &trans           &trans           &kp LG(LS(N5))    &kp LG(LS(LC(NUMBER_4)))  &kp LS(LG(NUMBER_4))  &trans
+&mt F1 TAB  &mt F2 NUMBER_1  &mt F3 NUMBER_2  &mt F4 NUMBER_3  &mt F5 NUMBER_4  &mt F6 N5    &mt F7 NUMBER_6  &mt F8 N7  &mt F9 N8     &mt F10 N9        &mt F11 N0         &mt F12 BACKSPACE
+&trans      &none            &mkp MCLK        &mkp RCLK        &mkp LCLK        &mo 2        &mkp MB4         &none      &kp UP_ARROW  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH
+&trans      &kp SLASH        &kp ASTERISK     &kp MINUS        &kp PLUS         &none        &mkp MB5         &kp LEFT   &kp DOWN      &kp RIGHT         &kp EQUAL          &trans
+                                              &trans           &trans           &trans       &trans           &trans     &trans
             >;
         };
 
         num_pad+media {
             bindings = <
-&trans  &kp K_LOCK  &mt C_RW C_PREV       &mt C_PP C_PP         &mt C_FAST_FORWARD C_NEXT  &bt BT_SEL 0    &kp ASTERISK  &kp N7        &kp N8        &kp N9        &kp PLUS    &trans
-&trans  &bt BT_CLR  &kp K_MUTE            &kp C_VOL_DN          &kp C_VOLUME_UP            &bt BT_SEL 1    &kp SLASH     &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp MINUS   &kp DOLLAR
-&trans  &none       &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_AL_CONTROL_PANEL     &bt BT_SEL 3    &kp EQUAL     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD  &kp COMMA
-                                          &trans                &trans                     &trans          &trans        &trans        &kp N0
+&kp K_COFFEE  &kp LG(LS(NUMBER_4))      &mt C_RW C_PREV       &mt C_PP C_PP         &mt C_FAST_FORWARD C_NEXT  &bt BT_SEL 0    &kp ASTERISK  &kp N7        &kp N8        &kp N9        &kp PLUS    &bt BT_CLR
+&trans        &kp LS(LC(LG(NUMBER_4)))  &kp K_MUTE            &kp C_VOL_DN          &kp C_VOLUME_UP            &bt BT_SEL 1    &kp SLASH     &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp MINUS   &kp DOLLAR
+&trans        &kp LS(LG(N5))            &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_AL_CONTROL_PANEL     &bt BT_SEL 3    &kp EQUAL     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD  &kp COMMA
+                                                              &trans                &trans                     &trans          &trans        &trans        &kp N0
             >;
         };
     };
