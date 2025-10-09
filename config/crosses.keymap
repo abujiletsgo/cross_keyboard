@@ -62,6 +62,11 @@
             bindings = <&kp ENTER>;
             key-positions = <22 21>;
         };
+
+        esc2 {
+            bindings = <&kp ESCAPE>;
+            key-positions = <1 2>;
+        };
     };
 
     keymap {
