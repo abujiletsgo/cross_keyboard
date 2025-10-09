@@ -65,10 +65,10 @@
         layer_1 {
             display-name = "NUMBER";
             bindings = <
-&mt F1 TAB  &mt F2 NUMBER_1  &mt F3 NUMBER_2  &mt F4 NUMBER_3  &mt F5 NUMBER_4  &mt F6 N5    &mt F7 NUMBER_6  &mt F8 N7                 &mt F9 N8             &mt F10 N9        &mt F11 N0         &mt F12 BACKSPACE
-&trans      &kp SLASH        &kp ASTERISK     &kp MINUS        &kp PLUS         &mkp LCLK    &mkp MB4         &none                     &kp UP_ARROW          &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH
-&trans      &none            &none            &none            &lt 2 V          &mkp RCLK    &mkp MB5         &kp LEFT                  &kp DOWN              &kp RIGHT         &kp EQUAL          &trans
-                                              &kp LG(LS(N5))   &trans           &trans       &trans           &kp LG(LS(LC(NUMBER_4)))  &kp LG(LS(NUMBER_4))
+&mt F1 TAB  &mt F2 NUMBER_1  &mt F3 NUMBER_2  &mt F4 NUMBER_3  &mt F5 NUMBER_4  &mt F6 N5         &mt F7 NUMBER_6           &mt F8 N7             &mt F9 N8     &mt F10 N9        &mt F11 N0         &mt F12 BACKSPACE
+&trans      &kp SLASH        &kp ASTERISK     &kp MINUS        &kp PLUS         &mkp LCLK         &mkp MB4                  &none                 &kp UP_ARROW  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH
+&trans      &none            &none            &none            &lt 2 V          &mkp RCLK         &mkp MB5                  &kp LEFT              &kp DOWN      &kp RIGHT         &kp EQUAL          &trans
+                                              &trans           &trans           &kp LG(LS(N5))    &kp LG(LS(LC(NUMBER_4)))  &kp LS(LG(NUMBER_4))  &trans
             >;
         };
 
