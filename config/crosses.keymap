@@ -88,10 +88,10 @@
 
         gesture {
             bindings = <
-&none  &none  &none  &none          &none         &none    &none  &none         &kp LC(UP_ARROW)    &none          &none  &none
-&none  &none  &none  &kp LG(MINUS)  &kp LG(PLUS)  &none    &none  &kp LC(LEFT)  &kp LC(DOWN_ARROW)  &kp LC(RIGHT)  &none  &none
-&none  &none  &none  &none          &none         &none    &none  &none         &none               &none          &none  &none
-                     &trans         &none         &none    &none  &none         &trans
+&none  &none  &none  &none   &none  &none    &none  &none         &kp LC(UP_ARROW)    &kp LG(MINUS)  &kp LG(PLUS)  &none
+&none  &none  &none  &none   &none  &none    &none  &kp LC(LEFT)  &kp LC(DOWN_ARROW)  &kp LC(RIGHT)  &none         &none
+&none  &none  &none  &none   &none  &none    &none  &none         &none               &none          &none         &none
+                     &trans  &none  &none    &none  &none         &trans
             >;
         };
     };
