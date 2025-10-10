@@ -41,7 +41,7 @@
         backspace {
             bindings = <&kp BACKSPACE>;
             key-positions = <8 9>;
-            layers = <0 2 3>;
+            layers = <0 2>;
         };
 
         esc {
@@ -50,7 +50,7 @@
         };
 
         gesture {
-            bindings = <&mo 3>;
+            bindings = <&mo 2>;
             key-positions = <36 41>;
         };
 
@@ -72,7 +72,6 @@
         delete {
             bindings = <&kp DELETE>;
             key-positions = <8 9>;
-            layers = <2>;
         };
     };
 
@@ -93,8 +92,8 @@
             display-name = "Number";
             bindings = <
 &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5    &kp NUMBER_6  &kp N7    &kp N8        &kp N9            &kp N0             &trans
-&trans  &none         &mkp MCLK     &mkp RCLK     &mkp LCLK     &mo 2     &mkp MB4      &none     &kp UP_ARROW  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH
-&trans  &kp SLASH     &kp ASTERISK  &kp MINUS     &kp PLUS      &none     &mkp MB5      &kp LEFT  &kp DOWN      &kp RIGHT         &kp EQUAL          &trans
+&trans  &none         &mkp MCLK     &mkp RCLK     &mkp LCLK     &mo 2     &mkp MB4      &mkp MB5  &kp UP_ARROW  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH
+&trans  &kp SLASH     &kp ASTERISK  &kp MINUS     &kp PLUS      &none     &none         &kp LEFT  &kp DOWN      &kp RIGHT         &kp EQUAL          &trans
                                     &trans        &trans        &trans    &trans        &trans    &trans
             >;
         };
