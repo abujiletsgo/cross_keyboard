@@ -41,6 +41,7 @@
         backspace {
             bindings = <&kp BACKSPACE>;
             key-positions = <8 9>;
+            layers = <0 2 3>;
         };
 
         esc {
@@ -67,6 +68,12 @@
             bindings = <&kp ESCAPE>;
             key-positions = <1 2>;
         };
+
+        delete {
+            bindings = <&kp DELETE>;
+            key-positions = <8 9>;
+            layers = <2>;
+        };
     };
 
     keymap {
@@ -83,16 +90,16 @@
         };
 
         Secondary {
-            display-name = "NUMBER";
+            display-name = "Number";
             bindings = <
-&mt F1 TAB  &mt F2 NUMBER_1  &mt F3 NUMBER_2  &mt F4 NUMBER_3  &mt F5 NUMBER_4  &mt F6 N5    &mt F7 NUMBER_6  &mt F8 N7  &mt F9 N8     &mt F10 N9        &mt F11 N0         &mt F12 BACKSPACE
-&trans      &none            &mkp MCLK        &mkp RCLK        &mkp LCLK        &mo 2        &mkp MB4         &none      &kp UP_ARROW  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH
-&trans      &kp SLASH        &kp ASTERISK     &kp MINUS        &kp PLUS         &none        &mkp MB5         &kp LEFT   &kp DOWN      &kp RIGHT         &kp EQUAL          &trans
-                                              &trans           &trans           &trans       &trans           &trans     &trans
+&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5    &kp NUMBER_6  &kp N7    &kp N8        &kp N9            &kp N0             &trans
+&trans  &none         &mkp MCLK     &mkp RCLK     &mkp LCLK     &mo 2     &mkp MB4      &none     &kp UP_ARROW  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH
+&trans  &kp SLASH     &kp ASTERISK  &kp MINUS     &kp PLUS      &none     &mkp MB5      &kp LEFT  &kp DOWN      &kp RIGHT         &kp EQUAL          &trans
+                                    &trans        &trans        &trans    &trans        &trans    &trans
             >;
         };
 
-        num_pad+media {
+        numpad+media {
             bindings = <
 &kp K_SCREENSAVER  &kp LG(LS(NUMBER_4))      &mt C_RW C_PREV       &mt C_PP C_PP         &mt C_FAST_FORWARD C_NEXT  &bt BT_SEL 0    &kp ASTERISK  &kp N7        &kp N8        &kp N9        &kp PLUS    &bt BT_CLR
 &trans             &kp LS(LC(LG(NUMBER_4)))  &kp K_MUTE            &kp C_VOL_DN          &kp C_VOLUME_UP            &bt BT_SEL 1    &kp SLASH     &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp MINUS   &kp DOLLAR
@@ -101,12 +108,12 @@
             >;
         };
 
-        gesture {
+        Gesture+F {
             bindings = <
-&none  &none  &none       &none          &none         &none    &none  &none         &kp LC(UP_ARROW)    &none          &none  &none
-&none  &none  &kp LG(N0)  &kp LG(MINUS)  &kp LG(PLUS)  &none    &none  &kp LC(LEFT)  &kp LC(DOWN_ARROW)  &kp LC(RIGHT)  &none  &none
-&none  &none  &none       &none          &none         &none    &none  &none         &none               &none          &none  &none
-                          &trans         &none         &none    &none  &none         &trans
+&kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6    &kp F7  &kp F8              &kp F9              &kp LG(F10)    &kp F11        &kp LG(F12)
+&none   &none   &none   &none   &none   &none     &none   &none               &kp LC(UP_ARROW)    &kp LG(N0)     &kp LG(MINUS)  &kp LG(PLUS)
+&none   &none   &none   &none   &none   &none     &none   &kp LC(LEFT_ARROW)  &kp LC(DOWN_ARROW)  &kp LC(RIGHT)  &none          &none
+                        &trans  &none   &none     &none   &none               &trans
             >;
         };
     };
