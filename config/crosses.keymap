@@ -41,7 +41,6 @@
         backspace {
             bindings = <&kp BACKSPACE>;
             key-positions = <8 9>;
-            layers = <0 2>;
         };
 
         esc {
@@ -72,6 +71,7 @@
         delete {
             bindings = <&kp DELETE>;
             key-positions = <8 9>;
+            layers = <3>;
         };
     };
 
