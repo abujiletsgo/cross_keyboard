@@ -110,7 +110,7 @@
         Gesture+F {
             bindings = <
 &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6    &kp F7  &kp F8              &kp F9              &kp F10        &kp F11        &kp F12
-&none   &none   &none   &none   &none   &none     &none   &none               &kp LC(UP_ARROW)    &kp LG(N0)     &kp LG(MINUS)  &kp LG(PLUS)
+&none   &none   &none   &none   &none   &none     &none   &none               &kp LC(UP_ARROW)    &kp LG(N0)     &kp LG(MINUS)  &kp LG(EQUAL)
 &none   &none   &none   &none   &none   &none     &none   &kp LC(LEFT_ARROW)  &kp LC(DOWN_ARROW)  &kp LC(RIGHT)  &none          &none
                         &trans  &none   &none     &none   &none               &trans
             >;
