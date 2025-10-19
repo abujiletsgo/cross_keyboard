@@ -1,6 +1,5 @@
 #include <dt-bindings/zmk/mouse.h>
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
@@ -100,10 +99,10 @@
 
         numpad+media {
             bindings = <
-&kp K_SCREENSAVER  &kp LG(LS(NUMBER_4))      &mt C_RW C_PREV       &mt C_PP C_PP         &mt C_FAST_FORWARD C_NEXT  &bt BT_SEL 0    &kp ASTERISK  &kp N7        &kp N8        &kp N9        &kp PLUS    &bt BT_CLR
-&trans             &kp LS(LC(LG(NUMBER_4)))  &kp K_MUTE            &kp C_VOL_DN          &kp C_VOLUME_UP            &bt BT_SEL 1    &kp SLASH     &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp MINUS   &kp DOLLAR
-&trans             &kp LS(LG(N5))            &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_AL_CONTROL_PANEL     &bt BT_SEL 3    &kp EQUAL     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD  &kp COMMA
-                                                                   &trans                &trans                     &trans          &trans        &trans        &kp N0
+&kp K_SCREENSAVER  &kp LG(LS(NUMBER_4))      &mt C_RW C_PREV       &mt C_PP C_PP         &mt C_FAST_FORWARD C_NEXT  &none     &kp ASTERISK  &kp N7        &kp N8        &kp N9        &kp PLUS    &none
+&trans             &kp LS(LC(LG(NUMBER_4)))  &kp K_MUTE            &kp C_VOL_DN          &kp C_VOLUME_UP            &none     &kp SLASH     &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp MINUS   &kp DOLLAR
+&trans             &kp LS(LG(N5))            &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_AL_CONTROL_PANEL     &none     &kp EQUAL     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD  &kp COMMA
+                                                                   &trans                &trans                     &trans    &trans        &trans        &kp N0
             >;
         };
 
