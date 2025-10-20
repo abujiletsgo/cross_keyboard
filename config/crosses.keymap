@@ -1,5 +1,6 @@
 #include <dt-bindings/zmk/mouse.h>
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
@@ -112,6 +113,15 @@
 &none   &none   &none   &none   &none   &none     &none   &none               &kp LC(UP_ARROW)    &kp LG(N0)     &kp LG(MINUS)  &kp LG(EQUAL)
 &none   &none   &none   &none   &none   &none     &none   &kp LC(LEFT_ARROW)  &kp LC(DOWN_ARROW)  &kp LC(RIGHT)  &none          &none
                         &trans  &none   &none     &none   &none               &trans
+            >;
+        };
+
+        Settings {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans        &trans        &trans        &trans        &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans        &trans        &trans        &trans        &trans
+                        &trans  &trans  &trans    &trans  &trans        &trans
             >;
         };
     };
