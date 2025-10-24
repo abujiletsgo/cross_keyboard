@@ -103,7 +103,7 @@
 &kp C_POWER  &kp LG(LS(NUMBER_4))      &mt C_RW C_PREV       &mt C_PP C_PP         &mt C_FAST_FORWARD C_NEXT  &none     &kp ASTERISK  &kp N7        &kp N8        &kp N9        &kp PLUS    &none
 &trans       &kp LS(LC(LG(NUMBER_4)))  &kp K_MUTE            &kp C_VOL_DN          &kp C_VOLUME_UP            &none     &kp SLASH     &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp MINUS   &kp DOLLAR
 &trans       &kp LS(LG(N5))            &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_AL_CONTROL_PANEL     &none     &kp EQUAL     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD  &kp COMMA
-                                                             &trans                &trans                     &trans    &kp N0        &kp PERIOD    &trans
+                                                             &trans                &trans                     &trans    &trans        &kp N0        &trans
             >;
         };
 
@@ -112,7 +112,7 @@
 &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6    &kp F7  &kp F8              &kp F9              &kp F10        &kp F11        &kp F12
 &none   &none   &none   &none   &mo 4   &none     &none   &none               &kp LC(UP_ARROW)    &kp LG(N0)     &kp LG(MINUS)  &kp LG(EQUAL)
 &none   &none   &none   &none   &none   &none     &none   &kp LC(LEFT_ARROW)  &kp LC(DOWN_ARROW)  &kp LC(RIGHT)  &none          &none
-                        &trans  &none   &none     &none   &none               &trans
+                        &none   &none   &trans    &trans  &none               &none
             >;
         };
 
