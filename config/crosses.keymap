@@ -50,7 +50,7 @@
 
         gesture {
             bindings = <&mo 3>;
-            key-positions = <38 39>;
+            key-positions = <41 36>;
         };
 
         backspace2 {
@@ -81,10 +81,10 @@
         Primary {
             display-name = "QWERTY";
             bindings = <
-&kp TAB         &kp Q  &kp W  &kp E         &kp R                         &kp T          &kp Y        &kp U              &kp I      &kp O    &kp P     &kp BSPC
-&kp CAPSLOCK    &kp A  &kp S  &kp D         &kp F                         &kp G          &kp H        &kp J              &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LEFT_SHIFT  &kp Z  &kp X  &kp C         &kp V                         &kp B          &kp N        &kp M              &kp COMMA  &kp DOT  &kp FSLH  &kp RIGHT_SHIFT
-                              &kp LEFT_ALT  &mt LEFT_COMMAND C_AC_SEARCH  &lt 1 SPACE    &lt 1 SPACE  &kp RIGHT_COMMAND  &tog 2
+&kp TAB         &kp Q  &kp W  &kp E        &kp R         &kp T                           &kp Y              &kp U   &kp I        &kp O    &kp P     &kp BSPC
+&kp CAPSLOCK    &kp A  &kp S  &kp D        &kp F         &kp G                           &kp H              &kp J   &kp K        &kp L    &kp SEMI  &kp SQT
+&kp LEFT_SHIFT  &kp Z  &kp X  &kp C        &kp V         &kp B                           &kp N              &kp M   &kp COMMA    &kp DOT  &kp FSLH  &kp RIGHT_SHIFT
+                              &lt 1 SPACE  &kp LEFT_ALT  &mt LEFT_COMMAND C_AC_SEARCH    &kp RIGHT_COMMAND  &tog 2  &lt 1 SPACE
             >;
         };
 
@@ -103,7 +103,7 @@
 &kp C_POWER  &kp LG(LS(NUMBER_4))      &mt C_RW C_PREV       &mt C_PP C_PP         &mt C_FAST_FORWARD C_NEXT  &none     &kp ASTERISK  &kp N7        &kp N8        &kp N9        &kp PLUS    &none
 &trans       &kp LS(LC(LG(NUMBER_4)))  &kp K_MUTE            &kp C_VOL_DN          &kp C_VOLUME_UP            &none     &kp SLASH     &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp MINUS   &kp DOLLAR
 &trans       &kp LS(LG(N5))            &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_AL_CONTROL_PANEL     &none     &kp EQUAL     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD  &kp COMMA
-                                                             &trans                &trans                     &trans    &trans        &kp N0        &trans
+                                                             &trans                &trans                     &trans    &trans        &trans        &kp N0
             >;
         };
 
