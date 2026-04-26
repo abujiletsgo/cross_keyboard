@@ -13,13 +13,13 @@
 #
 ---
 include:
-  - board: nice_nano_v2/nrf52840/zmk
+  - board: nice_nano/nrf52840/zmk
     shield: crosses_left
-  - board: nice_nano_v2/nrf52840/zmk
+  - board: nice_nano/nrf52840/zmk
     shield: crosses_right
-  - board: nice_nano_v2/nrf52840/zmk
+  - board: nice_nano/nrf52840/zmk
     shield: crosses_tp_left
-  - board: nice_nano_v2/nrf52840/zmk
+  - board: nice_nano/nrf52840/zmk
     shield: crosses_tp_right
-  - board: nice_nano_v2/nrf52840/zmk
+  - board: nice_nano/nrf52840/zmk
     shield: settings_reset
