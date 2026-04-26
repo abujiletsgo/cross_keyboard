@@ -51,9 +51,8 @@
     trackpad: trackpad@2a {
         compatible = "cirque,pinnacle";
         reg = <0x2a>;
-        dr-gpios = <&gpio0 6 (GPIO_ACTIVE_HIGH)>;
+        data-ready-gpios = <&gpio0 6 (GPIO_ACTIVE_HIGH)>;
         sensitivity = "4x";
-        scroll-layers = <2>;
     };
 };
 
