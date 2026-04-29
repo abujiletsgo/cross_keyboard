@@ -1,5 +1,0 @@
-config SHIELD_CROSS_CORNE_DIAG_RIGHT
-    def_bool $(shields_list_contains,cross_corne_diag_right)
-
-config SHIELD_CROSS_CORNE_DIAG_LEFT
-    def_bool $(shields_list_contains,cross_corne_diag_left)
