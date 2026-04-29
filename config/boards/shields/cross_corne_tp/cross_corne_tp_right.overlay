@@ -47,9 +47,10 @@
     pinctrl-1 = <&i2c0_sleep>;
     pinctrl-names = "default", "sleep";
 
-    trackpad: trackpad@2c {
+    trackpad: trackpad@2a {
         compatible = "cirque,pinnacle";
-        reg = <0x2c>;
+        reg = <0x2a>;
+        data-ready-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         sensitivity = "4x";
     };
 };
