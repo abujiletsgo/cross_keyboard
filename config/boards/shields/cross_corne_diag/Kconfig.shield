@@ -1,0 +1,2 @@
+config SHIELD_CROSS_CORNE_DIAG
+    def_bool $(shields_list_contains,cross_corne_diag)

@@ -1,0 +1,40 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+/*
+ * 32 positions (8 rows × 4 cols)
+ * pos 0-9  → '0'-'9'
+ * pos 10-31 → 'a'-'v'
+ *
+ * Lookup: row_idx * 4 + col_idx = position → char
+ *
+ * Confirmed:
+ *   row 3 (gpio0 29) + col 0 (gpio1 11) = pos 12 → 'c'
+ *   row 3 (gpio0 29) + col 1 (gpio1 13) = pos 13 → 'd'
+ *   row 3 (gpio0 29) + col 2 (gpio1 15) = pos 14 → 'e'
+ *
+ * If pressing a key outputs 'a' → pos 10 → row 2 (gpio0 20), col 2 (gpio1 15)
+ * If pressing a key outputs '0' → pos 0  → row 0 (gpio0 6),  col 0 (gpio1 11)
+ */
+
+/ {
+    chosen {
+        zmk,matrix_transform = &diag_transform;
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+        diag {
+            bindings = <
+/* row0 */ &kp N0 &kp N1 &kp N2 &kp N3
+/* row1 */ &kp N4 &kp N5 &kp N6 &kp N7
+/* row2 */ &kp N8 &kp N9 &kp A  &kp B
+/* row3 */ &kp C  &kp D  &kp E  &kp F
+/* row4 */ &kp G  &kp H  &kp I  &kp J
+/* row5 */ &kp K  &kp L  &kp M  &kp N
+/* row6 */ &kp O  &kp P  &kp Q  &kp R
+/* row7 */ &kp S  &kp T  &kp U  &kp V
+            >;
+        };
+    };
+};

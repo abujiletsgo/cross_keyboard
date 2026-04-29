@@ -1,0 +1,9 @@
+file_format: "1"
+id: cross_corne_diag
+name: Cross Corne Diagnostic
+type: shield
+url: ""
+requires:
+  - pro_micro
+features:
+  - keys

@@ -1,0 +1,6 @@
+if SHIELD_CROSS_CORNE_DIAG
+
+config ZMK_KEYBOARD_NAME
+    default "Diag"
+
+endif
