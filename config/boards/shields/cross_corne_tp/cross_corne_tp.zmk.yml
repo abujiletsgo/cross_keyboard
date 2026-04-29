@@ -1,0 +1,13 @@
+file_format: "1"
+id: cross_corne_tp
+name: Cross Corne TP
+type: shield
+url: https://github.com/tomjihoonkwon/cross_corne
+requires: [pro_micro]
+features:
+  - keys
+  - pointer
+  - underglow
+siblings:
+  - cross_corne_tp_left
+  - cross_corne_tp_right
