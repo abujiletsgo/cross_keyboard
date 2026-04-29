@@ -50,7 +50,6 @@
     trackpad: trackpad@2c {
         compatible = "cirque,pinnacle";
         reg = <0x2c>;
-        data-ready-gpios = <&gpio0 6 (GPIO_ACTIVE_HIGH)>;
         sensitivity = "4x";
     };
 };
