@@ -50,7 +50,7 @@
 
         gesture {
             bindings = <&mo 3>;
-            key-positions = <41 36>;
+            key-positions = <38 39>;
         };
 
         backspace2 {
@@ -76,7 +76,7 @@
 
         ctrl_combo {
             bindings = <&kp LCTRL>;
-            key-positions = <38 39>;
+            key-positions = <36 41>;
         };
     };
 
@@ -117,7 +117,7 @@
 &kp F1  &kp F2  &kp F3              &kp F4            &kp F5         &kp F6    &kp F7  &kp F8          &kp F9          &kp F10     &kp F11        &kp F12
 &none   &none   &none               &kp LC(UP_ARROW)  &mo 4          &none     &none   &none           &kp UP_ARROW    &kp LG(N0)  &kp LG(MINUS)  &kp LG(EQUAL)
 &none   &none   &kp LC(LEFT_ARROW)  &kp LC(DOWN)      &kp LC(RIGHT)  &none     &none   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT   &none          &none
-                                    &trans            &none          &none     &none   &none           &trans
+                                    &none             &none          &trans    &trans  &none           &none
             >;
         };
 
