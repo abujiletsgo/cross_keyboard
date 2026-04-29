@@ -2,14 +2,19 @@
 #include <dt-bindings/zmk/keys.h>
 
 /*
- * 30 positions (5 rows × 6 cols)
- * pos = row_idx * 6 + col_idx
+ * 24 positions (6 rows × 4 cols)
+ * pos = row_idx * 4 + col_idx
  * pos 0-9  → '0'-'9'
- * pos 10-19 → 'a'-'j'
- * pos 20-29 → 'k'-'t'
+ * pos 10-23 → 'a'-'n'
  *
- * Rows: [gpio0 29, gpio1 4, gpio0 8, gpio0 9, gpio0 10]
- * Cols: [gpio1 11, gpio1 13, gpio1 15, gpio0 2, gpio0 31, gpio1 6]
+ * Rows: [gpio0 29, gpio1 4, gpio0 22, gpio0 24, gpio1 0, gpio0 11]
+ * Cols: [gpio1 11, gpio1 13, gpio1 15, gpio0 2]  (confirmed)
+ *
+ * Physical layout:
+ *   col0=gpio1 11 → thumb row
+ *   col1=gpio1 13 → bottom finger row
+ *   col2=gpio1 15 → middle finger row
+ *   col3=gpio0 2  → top finger row
  */
 
 / {
@@ -21,11 +26,12 @@
         compatible = "zmk,keymap";
         diag {
             bindings = <
-/* r0 */ &kp N0 &kp N1 &kp N2 &kp N3 &kp N4 &kp N5
-/* r1 */ &kp N6 &kp N7 &kp N8 &kp N9 &kp A  &kp B
-/* r2 */ &kp C  &kp D  &kp E  &kp F  &kp G  &kp H
-/* r3 */ &kp I  &kp J  &kp K  &kp L  &kp M  &kp N
-/* r4 */ &kp O  &kp P  &kp Q  &kp R  &kp S  &kp T
+/* r0 */ &kp N0 &kp N1 &kp N2 &kp N3
+/* r1 */ &kp N4 &kp N5 &kp N6 &kp N7
+/* r2 */ &kp N8 &kp N9 &kp A  &kp B
+/* r3 */ &kp C  &kp D  &kp E  &kp F
+/* r4 */ &kp G  &kp H  &kp I  &kp J
+/* r5 */ &kp K  &kp L  &kp M  &kp N
             >;
         };
     };
