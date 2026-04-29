@@ -2,18 +2,24 @@
 #include <dt-bindings/zmk/keys.h>
 
 /*
- * 32 positions (8 rows × 4 cols), each outputs a unique char.
+ * 20 positions (5 rows × 4 cols)
  * pos = row_idx * 4 + col_idx
- * pos 0-9  → '0'-'9'
- * pos 10-31 → 'a'-'v'
+ * pos 0-9 → '0'-'9', pos 10-19 → 'a'-'j'
  *
- * Row/col reference:
- *   rows: [gpio0 6, gpio0 17, gpio0 20, gpio0 29, gpio0 2, gpio0 31, gpio1 4, gpio1 6]
- *   cols: [gpio1 11, gpio1 13, gpio1 15, gpio0 22]
+ * Rows: [gpio0 29, gpio1 4, gpio0 2, gpio0 31, gpio1 6]
+ * Cols: [gpio1 11, gpio1 13, gpio1 15, gpio0 11]
  *
- * Confirmed: gpio0 29 (row 3) + gpio1 11 (col 0) = pos 12 = 'c'
- *            gpio0 29 (row 3) + gpio1 13 (col 1) = pos 13 = 'd'
- *            gpio0 29 (row 3) + gpio1 15 (col 2) = pos 14 = 'e'
+ * Expected from prev test:
+ *   gpio0 29 + gpio1 11 = pos 0 → '0'  (thumb col 1)
+ *   gpio0 29 + gpio1 13 = pos 1 → '1'  (bottom row col 1)
+ *   gpio0 29 + gpio1 15 = pos 2 → '2'  (middle row col 1)
+ *   gpio0 29 + gpio0 11 = pos 3 → '3'  (top row col 1 — if gpio0 11 is top row)
+ *   gpio1 4  + gpio1 11 = pos 4 → '4'
+ *   gpio1 4  + gpio1 13 = pos 5 → '5'
+ *   gpio1 4  + gpio1 15 = pos 6 → '6'
+ *   gpio1 4  + gpio0 11 = pos 7 → '7'
+ *   gpio0 2  + gpio1 15 = pos 10 → 'a' (middle row col 3 — if gpio0 2 is col 3)
+ *   gpio0 31 + gpio1 15 = pos 14 → 'e' (middle row col 4 — if gpio0 31 is col 4)
  */
 
 / {
@@ -30,9 +36,6 @@
 /* r2 */ &kp N8 &kp N9 &kp A  &kp B
 /* r3 */ &kp C  &kp D  &kp E  &kp F
 /* r4 */ &kp G  &kp H  &kp I  &kp J
-/* r5 */ &kp K  &kp L  &kp M  &kp N
-/* r6 */ &kp O  &kp P  &kp Q  &kp R
-/* r7 */ &kp S  &kp T  &kp U  &kp V
             >;
         };
     };
