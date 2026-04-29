@@ -2,24 +2,14 @@
 #include <dt-bindings/zmk/keys.h>
 
 /*
- * 20 positions (5 rows × 4 cols)
- * pos = row_idx * 4 + col_idx
- * pos 0-9 → '0'-'9', pos 10-19 → 'a'-'j'
+ * 30 positions (5 rows × 6 cols)
+ * pos = row_idx * 6 + col_idx
+ * pos 0-9  → '0'-'9'
+ * pos 10-19 → 'a'-'j'
+ * pos 20-29 → 'k'-'t'
  *
- * Rows: [gpio0 29, gpio1 4, gpio0 2, gpio0 31, gpio1 6]
- * Cols: [gpio1 11, gpio1 13, gpio1 15, gpio0 11]
- *
- * Expected from prev test:
- *   gpio0 29 + gpio1 11 = pos 0 → '0'  (thumb col 1)
- *   gpio0 29 + gpio1 13 = pos 1 → '1'  (bottom row col 1)
- *   gpio0 29 + gpio1 15 = pos 2 → '2'  (middle row col 1)
- *   gpio0 29 + gpio0 11 = pos 3 → '3'  (top row col 1 — if gpio0 11 is top row)
- *   gpio1 4  + gpio1 11 = pos 4 → '4'
- *   gpio1 4  + gpio1 13 = pos 5 → '5'
- *   gpio1 4  + gpio1 15 = pos 6 → '6'
- *   gpio1 4  + gpio0 11 = pos 7 → '7'
- *   gpio0 2  + gpio1 15 = pos 10 → 'a' (middle row col 3 — if gpio0 2 is col 3)
- *   gpio0 31 + gpio1 15 = pos 14 → 'e' (middle row col 4 — if gpio0 31 is col 4)
+ * Rows: [gpio0 29, gpio1 4, gpio0 8, gpio0 9, gpio0 10]
+ * Cols: [gpio1 11, gpio1 13, gpio1 15, gpio0 2, gpio0 31, gpio1 6]
  */
 
 / {
@@ -31,11 +21,11 @@
         compatible = "zmk,keymap";
         diag {
             bindings = <
-/* r0 */ &kp N0 &kp N1 &kp N2 &kp N3
-/* r1 */ &kp N4 &kp N5 &kp N6 &kp N7
-/* r2 */ &kp N8 &kp N9 &kp A  &kp B
-/* r3 */ &kp C  &kp D  &kp E  &kp F
-/* r4 */ &kp G  &kp H  &kp I  &kp J
+/* r0 */ &kp N0 &kp N1 &kp N2 &kp N3 &kp N4 &kp N5
+/* r1 */ &kp N6 &kp N7 &kp N8 &kp N9 &kp A  &kp B
+/* r2 */ &kp C  &kp D  &kp E  &kp F  &kp G  &kp H
+/* r3 */ &kp I  &kp J  &kp K  &kp L  &kp M  &kp N
+/* r4 */ &kp O  &kp P  &kp Q  &kp R  &kp S  &kp T
             >;
         };
     };
