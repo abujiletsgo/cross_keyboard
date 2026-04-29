@@ -1,6 +1,21 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
+/*
+ * 32 positions (8 rows × 4 cols), each outputs a unique char.
+ * pos = row_idx * 4 + col_idx
+ * pos 0-9  → '0'-'9'
+ * pos 10-31 → 'a'-'v'
+ *
+ * Row/col reference:
+ *   rows: [gpio0 6, gpio0 17, gpio0 20, gpio0 29, gpio0 2, gpio0 31, gpio1 4, gpio1 6]
+ *   cols: [gpio1 11, gpio1 13, gpio1 15, gpio0 22]
+ *
+ * Confirmed: gpio0 29 (row 3) + gpio1 11 (col 0) = pos 12 = 'c'
+ *            gpio0 29 (row 3) + gpio1 13 (col 1) = pos 13 = 'd'
+ *            gpio0 29 (row 3) + gpio1 15 (col 2) = pos 14 = 'e'
+ */
+
 / {
     chosen {
         zmk,matrix_transform = &default_transform;
@@ -8,29 +23,16 @@
 
     keymap {
         compatible = "zmk,keymap";
-
-        /*
-         * Each key outputs a unique character encoding its ZMK position (0-41).
-         * Positions 0-9  → '0'-'9'
-         * Positions 10-35 → 'a'-'z'
-         * Positions 36-41 → F1-F6 (thumb keys)
-         *
-         * Matrix position order (matches transform):
-         *   Row 0:  pos 0-5 = left outer→inner, pos 6-11 = right inner→outer
-         *   Row 1:  pos 12-17 = left, pos 18-23 = right
-         *   Row 2:  pos 24-29 = left, pos 30-35 = right
-         *   Thumbs: pos 36-38 = left, pos 39-41 = right
-         */
-        diag_layer {
+        diag {
             bindings = <
-/*  pos 0   1   2   3   4   5       6   7   8   9   10  11  */
-    &kp N0  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5    &kp N6  &kp N7  &kp N8  &kp N9  &kp A   &kp B
-/*  pos 12  13  14  15  16  17      18  19  20  21  22  23  */
-    &kp C   &kp D   &kp E   &kp F   &kp G   &kp H     &kp I   &kp J   &kp K   &kp L   &kp M   &kp N
-/*  pos 24  25  26  27  28  29      30  31  32  33  34  35  */
-    &kp O   &kp P   &kp Q   &kp R   &kp S   &kp T     &kp U   &kp V   &kp W   &kp X   &kp Y   &kp Z
-/*  pos 36  37  38                  39  40  41            */
-                    &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6
+/* r0 */ &kp N0 &kp N1 &kp N2 &kp N3
+/* r1 */ &kp N4 &kp N5 &kp N6 &kp N7
+/* r2 */ &kp N8 &kp N9 &kp A  &kp B
+/* r3 */ &kp C  &kp D  &kp E  &kp F
+/* r4 */ &kp G  &kp H  &kp I  &kp J
+/* r5 */ &kp K  &kp L  &kp M  &kp N
+/* r6 */ &kp O  &kp P  &kp Q  &kp R
+/* r7 */ &kp S  &kp T  &kp U  &kp V
             >;
         };
     };
