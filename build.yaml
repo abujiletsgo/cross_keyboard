@@ -18,10 +18,6 @@ include:
   - board: nice_nano/nrf52840/zmk
     shield: crosses_right
   - board: nice_nano/nrf52840/zmk
-    shield: crosses_tp_left
-  - board: nice_nano/nrf52840/zmk
-    shield: crosses_tp_right
-  - board: nice_nano/nrf52840/zmk
     shield: cross_corne_tp_left
   - board: nice_nano/nrf52840/zmk
     shield: cross_corne_tp_right
