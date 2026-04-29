@@ -8,3 +8,4 @@ features:
   - keys
 siblings:
   - cross_corne_diag_right
+  - cross_corne_diag_left

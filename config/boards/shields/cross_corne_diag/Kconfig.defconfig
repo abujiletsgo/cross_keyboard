@@ -4,3 +4,10 @@ config ZMK_KEYBOARD_NAME
     default "Diag"
 
 endif
+
+if SHIELD_CROSS_CORNE_DIAG_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "DiagLeft"
+
+endif
