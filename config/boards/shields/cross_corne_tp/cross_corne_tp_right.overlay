@@ -28,7 +28,7 @@
         compatible = "azoteq,iqs5xx";
         reg = <0x74>;
         status = "okay";
-        rdy-gpios = <&gpio1 2 GPIO_ACTIVE_HIGH>;
+        rdy-gpios = <&gpio1 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         one-finger-tap;
         press-and-hold;
         press-and-hold-time = <250>;
