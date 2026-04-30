@@ -28,7 +28,6 @@
         compatible = "azoteq,iqs5xx";
         reg = <0x74>;
         status = "okay";
-        reset-gpios = <&gpio1 1 GPIO_ACTIVE_LOW>;
         rdy-gpios = <&gpio1 2 GPIO_ACTIVE_HIGH>;
         one-finger-tap;
         press-and-hold;
