@@ -21,32 +21,8 @@
         ;
 };
 
-
-// trackpad bus
-&pinctrl {
-    i2c0_default: i2c0_default {
-        group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 17)>,
-                    <NRF_PSEL(TWIM_SCL, 0, 20)>;
-        };
-    };
-
-    i2c0_sleep: i2c0_sleep {
-        group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 17)>,
-                    <NRF_PSEL(TWIM_SCL, 0, 20)>;
-            low-power-enable;
-        };
-    };
-};
-
-&i2c0 {
+&pro_micro_i2c {
     status = "okay";
-    compatible = "nordic,nrf-twim";
-    pinctrl-0 = <&i2c0_default>;
-    pinctrl-1 = <&i2c0_sleep>;
-    pinctrl-names = "default", "sleep";
-    clock-frequency = <I2C_BITRATE_FAST>;
 
     trackpad: iqs5xx@74 {
         compatible = "azoteq,iqs5xx";
@@ -56,7 +32,6 @@
         rdy-gpios = <&gpio1 2 GPIO_ACTIVE_HIGH>;
     };
 };
-
 
 / {
     trackpad_listener {
