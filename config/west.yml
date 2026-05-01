@@ -1,13 +1,13 @@
 manifest:
   remotes:
-    - name: petejohanson
-      url-base: https://github.com/petejohanson
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
     - name: george-norton
       url-base: https://github.com/george-norton
   projects:
     - name: zmk
-      remote: petejohanson
-      revision: feat/pointers-move-scroll-ptp
+      remote: zmkfirmware
+      revision: main
       import: app/west.yml
     - name: maxtouch-zephyr-module
       remote: george-norton
