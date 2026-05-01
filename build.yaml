@@ -23,4 +23,9 @@ include:
     shield: cross_corne_tp_right
     snippet: zmk-usb-logging
   - board: nice_nano/nrf52840/zmk
+    shield: corne_tp_og_left
+  - board: nice_nano/nrf52840/zmk
+    shield: corne_tp_og_right
+    snippet: zmk-usb-logging
+  - board: nice_nano/nrf52840/zmk
     shield: settings_reset

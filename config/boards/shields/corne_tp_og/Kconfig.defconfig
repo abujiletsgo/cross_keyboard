@@ -1,0 +1,16 @@
+if SHIELD_CORNE_TP_OG_RIGHT
+
+config ZMK_KEYBOARD_NAME
+	default "Corne TP OG"
+
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+	default y
+
+endif
+
+if SHIELD_CORNE_TP_OG_LEFT || SHIELD_CORNE_TP_OG_RIGHT
+
+config ZMK_SPLIT
+	default y
+
+endif
