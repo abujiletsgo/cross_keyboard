@@ -1,14 +1,14 @@
-if SHIELD_CORNE_TP_OG_RIGHT
+if SHIELD_CORNE_TP_RIGHT
 
 config ZMK_KEYBOARD_NAME
-	default "Corne TP OG"
+	default "Corne TP"
 
 config ZMK_SPLIT_BLE_ROLE_CENTRAL
 	default y
 
 endif
 
-if SHIELD_CORNE_TP_OG_LEFT || SHIELD_CORNE_TP_OG_RIGHT
+if SHIELD_CORNE_TP_LEFT || SHIELD_CORNE_TP_RIGHT
 
 config ZMK_SPLIT
 	default y

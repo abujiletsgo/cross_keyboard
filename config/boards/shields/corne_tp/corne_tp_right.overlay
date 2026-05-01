@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "corne_tp_og.dtsi"
+#include "corne_tp.dtsi"
 
 &default_transform {
     col-offset = <6>;
@@ -41,7 +41,7 @@
         natural-scroll-y;
         natural-scroll-x;
 
-        switch-xy;
+        flip-x;
 
         bottom-beta = <5>;
         stationary-threshold = <5>;
