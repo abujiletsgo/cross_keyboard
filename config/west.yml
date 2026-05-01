@@ -1,16 +1,16 @@
 manifest:
   remotes:
-    - name: zmkfirmware
-      url-base: https://github.com/zmkfirmware
-    - name: aym1607
-      url-base: https://github.com/AYM1607
+    - name: petejohanson
+      url-base: https://github.com/petejohanson
+    - name: george-norton
+      url-base: https://github.com/george-norton
   projects:
     - name: zmk
-      remote: zmkfirmware
-      revision: main
+      remote: petejohanson
+      revision: feat/pointers-move-scroll-ptp
       import: app/west.yml
-    - name: zmk-driver-azoteq-iqs5xx
-      remote: aym1607
+    - name: maxtouch-zephyr-module
+      remote: george-norton
       revision: main
   self:
     path: config

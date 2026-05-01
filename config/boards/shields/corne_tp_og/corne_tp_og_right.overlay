@@ -24,32 +24,25 @@
 &pro_micro_i2c {
     status = "okay";
 
-    trackpad: iqs5xx@74 {
-        compatible = "azoteq,iqs5xx";
-        reg = <0x74>;
+    trackpad: maxtouch@4a {
+        compatible = "microchip,maxtouch";
+        reg = <0x4a>;
         status = "okay";
 
-        rdy-gpios = <&gpio1 6 GPIO_ACTIVE_HIGH>;
+        chg-gpios = <&gpio1 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
 
-        one-finger-tap;
-        press-and-hold;
-        press-and-hold-time = <250>;
-        two-finger-tap;
+        sensor-width = <40>;
+        sensor-height = <40>;
 
-        scroll;
-        natural-scroll-y;
-        natural-scroll-x;
-
-        switch-xy;
-
-        bottom-beta = <5>;
-        stationary-threshold = <5>;
+        max-touch-points = <5>;
+        repeat-each-cycle;
     };
 };
 
 / {
     trackpad_listener {
         compatible = "zmk,input-listener";
+        mode = "trackpad";
         device = <&trackpad>;
     };
 };
