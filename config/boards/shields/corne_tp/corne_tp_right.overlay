@@ -48,9 +48,12 @@
     };
 };
 
+#include <input/processors.dtsi>
+
 / {
     trackpad_listener {
         compatible = "zmk,input-listener";
         device = <&trackpad>;
+        input-processors = <&zip_xy_scaler 80 100>;
     };
 };
