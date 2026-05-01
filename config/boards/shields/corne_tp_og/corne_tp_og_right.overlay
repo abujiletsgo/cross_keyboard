@@ -29,7 +29,8 @@
         reg = <0x74>;
         status = "okay";
 
-        rdy-gpios = <&gpio1 6 GPIO_ACTIVE_HIGH>;
+        rdy-gpios   = <&gpio1 2 GPIO_ACTIVE_HIGH>;
+        reset-gpios = <&gpio1 1 GPIO_ACTIVE_LOW>;
 
         one-finger-tap;
         press-and-hold;
