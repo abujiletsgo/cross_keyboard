@@ -11,12 +11,9 @@
 #   - board: nice_nano_v2
 #     shield: reviung41
 #
+# corne branch: trackpad corne only (Azoteq IQS5XX). Trackball lives on the crosses branch.
 ---
 include:
-  - board: nice_nano/nrf52840/zmk
-    shield: crosses_left
-  - board: nice_nano/nrf52840/zmk
-    shield: crosses_right
   - board: nice_nano/nrf52840/zmk
     shield: corne_tp_left
   - board: nice_nano/nrf52840/zmk

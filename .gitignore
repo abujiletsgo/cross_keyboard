@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# Python (diag.py helpers)
+__pycache__/
+*.pyc
+
+# Claude / agentic tooling artifacts
+.claude/
+logs/
+
+# Editor swap/backup
+*.swp
+*~
