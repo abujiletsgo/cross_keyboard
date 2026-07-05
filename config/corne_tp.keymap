@@ -77,8 +77,8 @@
 
         delete {
             bindings = <&kp DELETE>;
-            key-positions = <8 9>;
-            layers = <3 7>;          // works on both Mac and Android gesture layers
+            key-positions = <9 10>;
+            layers = <3 7>;
         };
 
         ctrl_combo {
