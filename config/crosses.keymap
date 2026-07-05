@@ -86,9 +86,9 @@
         Primary {
             display-name = "QWERTY";
             bindings = <
-&kp TAB         &kp Q  &kp W  &kp E        &kp R         &kp T                           &kp Y              &kp U   &kp I        &kp O    &kp P     &kp BSPC
-&kp CAPSLOCK    &kp A  &kp S  &kp D        &kp F         &kp G                           &kp H              &kp J   &kp K        &kp L    &kp SEMI  &kp SQT
-&kp LEFT_SHIFT  &kp Z  &kp X  &kp C        &kp V         &kp B                           &kp N              &kp M   &kp COMMA    &kp DOT  &kp FSLH  &kp RIGHT_SHIFT
+&kp TAB         &kp Q  &kp W  &kp E         &kp R                         &kp T          &kp Y        &kp U              &kp I      &kp O    &kp P     &kp BSPC
+&kp CAPSLOCK    &kp A  &kp S  &kp D         &kp F                         &kp G          &kp H        &kp J              &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LEFT_SHIFT  &kp Z  &kp X  &kp C         &kp V                         &kp B          &kp N        &kp M              &kp COMMA  &kp DOT  &kp FSLH  &kp RIGHT_SHIFT
                               &lt 1 SPACE  &kp LEFT_ALT  &mt LEFT_COMMAND C_AC_SEARCH    &kp RIGHT_COMMAND  &tog 2  &lt 1 SPACE
             >;
         };
@@ -123,10 +123,10 @@
 
         Settings {
             bindings = <
-&bt BT_CLR  &trans  &trans  &trans  &trans  &bt BT_CLR_ALL    &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &trans
-&trans      &trans  &trans  &trans  &trans  &trans            &trans  &trans        &trans        &trans        &trans        &trans
-&trans      &trans  &trans  &trans  &trans  &trans            &trans  &trans        &trans        &trans        &trans        &trans
-                            &trans  &trans  &trans            &trans  &trans        &trans
+&bt BT_CLR  &trans  &trans  &trans  &trans  &trans    &soft_off  &bt BT_SEL 0   &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+&trans      &trans  &trans  &trans  &trans  &trans    &trans     &kp LC(LG(Q))  &trans        &trans        &trans        &trans
+&trans      &trans  &trans  &trans  &trans  &trans    &trans     &trans         &trans        &trans        &trans        &trans
+                            &trans  &trans  &trans    &trans     &trans         &trans
             >;
         };
     };
