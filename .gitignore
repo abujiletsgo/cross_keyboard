@@ -12,3 +12,7 @@ logs/
 # Editor swap/backup
 *.swp
 *~
+.gstack/
+
+# Downloaded CI firmware artifacts (gh run download)
+firmware/
