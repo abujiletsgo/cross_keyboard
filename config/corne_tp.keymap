@@ -28,6 +28,55 @@
             layers = <1 2>;        // These are LWR and RSE layers
             target-layer = <3>;    // Layer 3 will activate when both are held
         };
+
+        // Android "Cmd" morphs. On the Android layer the right-mid thumb holds
+        // RIGHT_CONTROL (Ctrl+C/V/Z/A/T/W... == Mac Cmd). Android EditText does
+        // line-wise delete/move on ALT, not Ctrl, so while RIGHT_CONTROL is held
+        // these morph to the Alt chord and drop the Ctrl. Verified on the Fold 8
+        // (One UI, Android 17): Ctrl+Backspace = delete word (Mac Option),
+        // Alt+Backspace = delete line (Mac Cmd); Ctrl+Left = word, Alt+Left = line start.
+        // RIGHT_CONTROL is never held on the Mac layers, so they are inert there.
+        and_bspc: android_cmd_backspace {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp BACKSPACE>, <&kp LA(BACKSPACE)>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        and_del: android_cmd_delete {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DELETE>, <&kp LA(DELETE)>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        and_left: android_cmd_left {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ARROW>, <&kp LA(LEFT_ARROW)>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        and_right: android_cmd_right {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RIGHT_ARROW>, <&kp LA(RIGHT_ARROW)>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        and_up: android_cmd_up {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp UP_ARROW>, <&kp LA(UP_ARROW)>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        and_down: android_cmd_down {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DOWN_ARROW>, <&kp LA(DOWN_ARROW)>;
+            mods = <(MOD_RCTL)>;
+        };
     };
 
     combos {
@@ -39,7 +88,7 @@
         };
 
         backspace {
-            bindings = <&kp BACKSPACE>;
+            bindings = <&and_bspc>;
             key-positions = <8 9>;
         };
 
@@ -48,20 +97,8 @@
             key-positions = <2 3>;
         };
 
-        gesture {
-            bindings = <&mo 3>;
-            key-positions = <38 39>;     // both Space thumbs (inner) -> Mac gesture
-            layers = <0 1 2>;        // Mac gesture: only when a Mac base layer is on top
-        };
-
-        gesture_android {
-            bindings = <&mo 7>;
-            key-positions = <38 39>;     // same Space chord -> Android gesture
-            layers = <5 6>;          // Android gesture: same chord, fires when Android base/numpad is on top
-        };
-
         backspace2 {
-            bindings = <&kp BACKSPACE>;
+            bindings = <&and_bspc>;
             key-positions = <10 9>;
         };
 
@@ -76,7 +113,7 @@
         };
 
         delete {
-            bindings = <&kp DELETE>;
+            bindings = <&and_del>;
             key-positions = <9 10>;
             layers = <3 7>;
         };
@@ -96,7 +133,7 @@
 &kp TAB         &kp Q  &kp W  &kp E        &kp R         &kp T                           &kp Y              &kp U   &kp I        &kp O    &kp P     &kp BSPC
 &kp CAPSLOCK    &kp A  &kp S  &kp D        &kp F         &kp G                           &kp H              &kp J   &kp K        &kp L    &kp SEMI  &kp SQT
 &kp LEFT_SHIFT  &kp Z  &kp X  &kp C        &kp V         &kp B                           &kp N              &kp M   &kp COMMA    &kp DOT  &kp FSLH  &kp RIGHT_SHIFT
-                              &kp LEFT_ALT  &mt LEFT_COMMAND C_AC_SEARCH  &lt 1 SPACE    &lt 1 SPACE  &kp RIGHT_COMMAND  &tog 2
+                              &kp LEFT_ALT  &mt LEFT_COMMAND C_AC_SEARCH  &lt 1 SPACE    &lt 3 SPACE  &kp RIGHT_COMMAND  &tog 2
             >;
         };
 
@@ -122,8 +159,8 @@
         Gesture {
             bindings = <
 &kp F1  &kp F2  &kp F3              &kp F4            &kp F5         &kp F6    &kp F7  &kp F8          &kp F9          &kp F10     &kp F11        &kp F12
-&none   &none   &none               &kp LC(UP_ARROW)  &mo 4          &none     &none   &none           &kp UP_ARROW    &kp LG(N0)  &kp LG(MINUS)  &kp LG(EQUAL)
-&none   &none   &kp LC(LEFT_ARROW)  &kp LC(DOWN)      &kp LC(RIGHT)  &none     &none   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT   &none          &none
+&none   &none   &none               &kp LC(UP_ARROW)  &mo 4                &none     &none   &none           &kp UP_ARROW    &kp LG(N0)       &kp LG(MINUS)  &kp LG(EQUAL)
+&none   &none   &kp LC(LEFT_ARROW)  &kp LC(DOWN_ARROW)  &kp LC(RIGHT_ARROW)  &none     &none   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &none          &none
                                     &none             &none          &trans    &trans  &none           &none
             >;
         };
@@ -144,18 +181,21 @@
         // ------------------------------------------------------------------
 
         // L5 Android base: a THIN overlay on top of the Mac Primary layer.
-        // Everything is transparent (letters/numbers/mods fall through to L0/L1),
+        // Everything is transparent (letters/numbers fall through to L0/L1),
         // only the platform-specific thumbs change:
-        //   left inner thumb : hold = LEFT_CONTROL (Android copy/paste/etc), tap = Search
-        //   right-mid thumb  : toggles the ANDROID numpad (L6) instead of the Mac one
-        //   right inner thumb: falls through to RIGHT_COMMAND == RIGHT_GUI == Android Search/Meta
+        //   left outer thumb (Mac Option) : LEFT_CONTROL  -> Ctrl+Backspace/arrows = word ops (Mac Option semantics)
+        //   left mid thumb   (Mac Cmd)    : hold = RIGHT_CONTROL (Ctrl+C/V/Z/A... = Mac Cmd), tap = Search
+        //                                   + and_* mod-morphs turn Ctrl+Backspace/arrows into Alt = line ops
+        //   right inner thumb (Space)     : hold = Android Gesture (L7) instead of the Mac one
+        //   right outer thumb             : toggles the ANDROID numpad (L6) instead of the Mac one
+        //   right mid thumb               : falls through to RIGHT_COMMAND == RIGHT_GUI == Android Search/Meta
         Android_Base {
             display-name = "Android";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                            &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                            &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                            &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &mt LEFT_CONTROL C_AC_SEARCH  &trans      &trans  &trans  &tog 6
+                        &kp LEFT_CONTROL  &mt RIGHT_CONTROL C_AC_SEARCH  &trans      &lt 7 SPACE  &trans  &tog 6
             >;
         };
 
@@ -180,11 +220,13 @@
         //   App Expose (Ctrl+Down)     -> Alt+Tab      = LA(TAB)   switch to next app
         //   Zoom (Cmd 0/-/=)           -> Ctrl 0/-/=   browser zoom
         //   Settings access (&mo 4)    -> &tog 5       switch back to the Mac set
+        //   Arrows are and_* morphs: plain = arrow, with the Android Cmd thumb (RIGHT_CONTROL)
+        //   held = Alt+arrow = line start/end / doc top/bottom (Mac Cmd+arrow semantics)
         Android_Gesture {
             bindings = <
 &kp F1  &kp F2  &kp F3       &kp F4      &kp F5         &kp F6    &kp F7  &kp F8          &kp F9          &kp F10     &kp F11        &kp F12
-&none   &none   &none        &kp LG(TAB) &tog 5         &none     &none   &none           &kp UP_ARROW    &kp LC(N0)  &kp LC(MINUS)  &kp LC(EQUAL)
-&none   &none   &kp LG(LEFT) &kp LA(TAB) &kp LG(RIGHT)  &none     &none   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT   &none          &none
+&none   &none   &none              &kp LG(TAB) &tog 5              &none     &none   &none      &and_up    &kp LC(N0)  &kp LC(MINUS)  &kp LC(EQUAL)
+&none   &none   &kp LG(LEFT_ARROW) &kp LA(TAB) &kp LG(RIGHT_ARROW) &none     &none   &and_left  &and_down  &and_right  &none          &none
                              &none       &none          &trans    &trans  &none           &none
             >;
         };
