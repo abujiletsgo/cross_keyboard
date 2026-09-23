@@ -22,6 +22,9 @@
 
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
+        // Keep the matrix armed through deep sleep so any key press wakes the
+        // half (upstream corne.dtsi has this; without it only reset wakes it).
+        wakeup-source;
 
         diode-direction = "col2row";
         row-gpios
