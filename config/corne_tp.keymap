@@ -97,6 +97,18 @@
             key-positions = <2 3>;
         };
 
+        gesture {
+            bindings = <&mo 3>;
+            key-positions = <38 39>;     // both Space thumbs (inner) -> Mac gesture
+            layers = <0 1 2>;        // Mac gesture: only when a Mac base layer is on top
+        };
+
+        gesture_android {
+            bindings = <&mo 7>;
+            key-positions = <38 39>;     // same Space chord -> Android gesture
+            layers = <5 6>;          // Android gesture: same chord, fires when Android base/numpad is on top
+        };
+
         backspace2 {
             bindings = <&and_bspc>;
             key-positions = <10 9>;
@@ -133,7 +145,7 @@
 &kp TAB         &kp Q  &kp W  &kp E        &kp R         &kp T                           &kp Y              &kp U   &kp I        &kp O    &kp P     &kp BSPC
 &kp CAPSLOCK    &kp A  &kp S  &kp D        &kp F         &kp G                           &kp H              &kp J   &kp K        &kp L    &kp SEMI  &kp SQT
 &kp LEFT_SHIFT  &kp Z  &kp X  &kp C        &kp V         &kp B                           &kp N              &kp M   &kp COMMA    &kp DOT  &kp FSLH  &kp RIGHT_SHIFT
-                              &kp LEFT_ALT  &mt LEFT_COMMAND C_AC_SEARCH  &lt 1 SPACE    &lt 3 SPACE  &kp RIGHT_COMMAND  &tog 2
+                              &kp LEFT_ALT  &mt LEFT_COMMAND C_AC_SEARCH  &lt 1 SPACE    &lt 8 SPACE  &kp RIGHT_COMMAND  &tog 2
             >;
         };
 
@@ -228,6 +240,20 @@
 &none   &none   &none              &kp LG(TAB) &tog 5              &none     &none   &none      &and_up    &kp LC(N0)  &kp LC(MINUS)  &kp LC(EQUAL)
 &none   &none   &kp LG(LEFT_ARROW) &kp LA(TAB) &kp LG(RIGHT_ARROW) &none     &none   &and_left  &and_down  &and_right  &none          &none
                              &none       &none          &trans    &trans  &none           &none
+            >;
+        };
+
+        // L8 Num+Nav: held by the right Space thumb. Identical to Number (L1)
+        // except the Gesture layer's arrow keys are dropped in at their exact
+        // Gesture positions: Mission Control / Spaces on D X C V (replacing
+        // right-click * - + here only) and plain arrows on K M , .
+        NumNav {
+            display-name = "Num+Nav";
+            bindings = <
+&trans  &kp NUMBER_1  &kp NUMBER_2        &kp NUMBER_3        &kp NUMBER_4         &kp N5       &kp NUMBER_6  &kp N7          &kp N8          &kp N9            &kp N0             &trans
+&trans  &kp TILDE     &mkp MCLK           &kp LC(UP_ARROW)    &mkp LCLK            &mo 2        &mkp MB4      &mkp MB5        &kp UP_ARROW    &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH
+&trans  &kp SLASH     &kp LC(LEFT_ARROW)  &kp LC(DOWN_ARROW)  &kp LC(RIGHT_ARROW)  &kp EQUAL    &none         &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW   &none              &trans
+                                          &trans              &trans               &trans       &trans        &trans          &trans
             >;
         };
     };
