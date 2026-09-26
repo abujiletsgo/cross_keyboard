@@ -229,7 +229,7 @@
         // L7 Android gesture: mirrors the Mac gesture (L3) with Samsung One UI
         // window/app management in place of macOS Mission Control / Spaces / zoom.
         //   Mission Control (Ctrl+Up)  -> Search+Tab   = LG(TAB)   all apps/windows
-        //   Spaces (Ctrl+Left/Right)   -> Search+L/R   = LG(LEFT/RIGHT)  snap window
+        //   Spaces (Ctrl+Left/Right)   -> previous / next app = LA(LS(TAB)) / LA(TAB)
         //   App Expose (Ctrl+Down)     -> Alt+Tab      = LA(TAB)   switch to next app
         //   Zoom (Cmd 0/-/=)           -> Ctrl 0/-/=   browser zoom
         //   Settings access (&mo 4)    -> &tog 5       switch back to the Mac set
@@ -239,7 +239,7 @@
             bindings = <
 &kp F1  &kp F2  &kp F3       &kp F4      &kp F5         &kp F6    &kp F7  &kp F8          &kp F9          &kp F10     &kp F11        &kp F12
 &none   &none   &none              &kp LG(TAB) &tog 5              &none     &none   &none      &and_up    &kp LC(N0)  &kp LC(MINUS)  &kp LC(EQUAL)
-&none   &none   &kp LG(LEFT_ARROW) &kp LA(TAB) &kp LG(RIGHT_ARROW) &none     &none   &and_left  &and_down  &and_right  &none          &none
+&none   &none   &kp LA(LS(TAB))    &kp LA(TAB) &kp LA(TAB)         &none     &none   &and_left  &and_down  &and_right  &none          &none
                              &none       &none          &trans    &trans  &none           &none
             >;
         };
