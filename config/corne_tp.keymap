@@ -77,6 +77,28 @@
             bindings = <&kp DOWN_ARROW>, <&kp LA(DOWN_ARROW)>;
             mods = <(MOD_RCTL)>;
         };
+
+        // Mac Cmd+Tab (app switcher) -> Android Alt+Tab. Shift is not in mods,
+        // so Cmd+Shift+Tab stays held through the morph = Alt+Shift+Tab.
+        and_tab: android_cmd_tab {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp TAB>, <&kp LA(TAB)>;
+            mods = <(MOD_RCTL)>;
+        };
+    };
+
+    // Android numpad (L6) is a thin overlay that turns on by itself whenever
+    // the Mac numpad (L2) is on while Android (L5) is on — so every route to
+    // the numpad (right outer thumb, &mo 2 on Number / Num+Nav) gets the
+    // Android screenshot keys without separate Android copies of those keys.
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        android_numpad {
+            if-layers = <2 5>;
+            then-layer = <6>;
+        };
     };
 
     combos {
@@ -201,28 +223,32 @@
         //   right inner thumb (Space)     : falls through: hold = Num+Nav (L8), same as Mac;
         //                                   Android Gesture (L7) is both Spaces (gesture_android combo)
         //   right outer thumb             : toggles the ANDROID numpad (L6) instead of the Mac one
-        //   right mid thumb               : falls through to RIGHT_COMMAND == RIGHT_GUI == Android Search/Meta
+        //   right mid thumb  (Mac Cmd)    : RIGHT_CONTROL, same as the left Cmd thumb (Mac has two Cmd keys)
+        //   right outer thumb             : falls through to &tog 2; L6 overlays it (conditional layer)
+        //   Tab                           : and_tab — Cmd+Tab = Alt+Tab app switcher
+        //   Caps Lock                     : Ctrl+Space = switch input language (Mac: Caps Lock switches language)
         Android_Base {
             display-name = "Android";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                            &trans  &trans  &trans  &trans  &trans  &trans
-                        &kp LEFT_CONTROL  &mt RIGHT_CONTROL C_AC_SEARCH  &trans      &trans       &trans  &tog 6
+&and_tab         &trans  &trans  &trans  &trans  &trans                            &trans  &trans  &trans  &trans  &trans  &trans
+&kp LC(SPACE)    &trans  &trans  &trans  &trans  &trans                            &trans  &trans  &trans  &trans  &trans  &trans
+&trans           &trans  &trans  &trans  &trans  &trans                            &trans  &trans  &trans  &trans  &trans  &trans
+                        &kp LEFT_CONTROL  &mt RIGHT_CONTROL C_AC_SEARCH  &trans      &trans       &kp RIGHT_CONTROL  &trans
             >;
         };
 
-        // L6 Android numpad+media: mirrors the Mac numpad (L2) but swaps the
-        // three macOS screenshot keys for the Samsung One UI equivalents.
+        // L6 Android numpad overlay: on automatically when L2 and L5 are both on
+        // (conditional_layers). Only the three macOS screenshot keys change;
+        // everything else falls through to the Mac numpad (L2).
         //   Cmd+Shift+4 (area)     -> Cmd+Shift+S  = LG(LS(S))  capture selection
         //   Shift+Ctrl+Cmd+4 (clip)-> Alt+PrintScr = LA(PRINTSCREEN)  capture window
-        //   Cmd+Shift+5 (toolbar)  -> (no Samsung kbd equivalent) &none
+        //   Cmd+Shift+5 (toolbar)  -> PrintScr = full-screen screenshot (closest Android has)
         Android_numpad {
             bindings = <
-&kp C_POWER  &kp LG(LS(S))        &mt C_RW C_PREV       &mt C_PP C_PP         &mt C_FAST_FORWARD C_NEXT  &none     &kp ASTERISK  &kp N7        &kp N8        &kp N9        &kp PLUS    &none
-&trans       &kp LA(PRINTSCREEN)  &kp K_MUTE            &kp C_VOL_DN          &kp C_VOLUME_UP            &none     &kp SLASH     &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp MINUS   &kp DOLLAR
-&trans       &none                &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_AL_CONTROL_PANEL     &none     &kp EQUAL     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD  &kp COMMA
-                                                        &trans                &trans                     &trans    &trans        &kp N0        &trans
+&trans  &kp LG(LS(S))        &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LA(PRINTSCREEN)  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp PRINTSCREEN      &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                             &trans  &trans  &trans            &trans  &trans  &trans
             >;
         };
 
