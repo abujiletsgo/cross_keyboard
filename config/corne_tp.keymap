@@ -198,7 +198,8 @@
         //   left outer thumb (Mac Option) : LEFT_CONTROL  -> Ctrl+Backspace/arrows = word ops (Mac Option semantics)
         //   left mid thumb   (Mac Cmd)    : hold = RIGHT_CONTROL (Ctrl+C/V/Z/A... = Mac Cmd), tap = Search
         //                                   + and_* mod-morphs turn Ctrl+Backspace/arrows into Alt = line ops
-        //   right inner thumb (Space)     : hold = Android Gesture (L7) instead of the Mac one
+        //   right inner thumb (Space)     : falls through: hold = Num+Nav (L8), same as Mac;
+        //                                   Android Gesture (L7) is both Spaces (gesture_android combo)
         //   right outer thumb             : toggles the ANDROID numpad (L6) instead of the Mac one
         //   right mid thumb               : falls through to RIGHT_COMMAND == RIGHT_GUI == Android Search/Meta
         Android_Base {
@@ -207,7 +208,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans                            &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                            &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                            &trans  &trans  &trans  &trans  &trans  &trans
-                        &kp LEFT_CONTROL  &mt RIGHT_CONTROL C_AC_SEARCH  &trans      &lt 7 SPACE  &trans  &tog 6
+                        &kp LEFT_CONTROL  &mt RIGHT_CONTROL C_AC_SEARCH  &trans      &trans       &trans  &tog 6
             >;
         };
 
@@ -243,16 +244,17 @@
             >;
         };
 
-        // L8 Num+Nav: held by the right Space thumb. Identical to Number (L1)
-        // except the Gesture layer's arrow keys are dropped in at their exact
-        // Gesture positions: Mission Control / Spaces on D X C V (replacing
-        // right-click * - + here only) and plain arrows on K M , .
+        // L8 Num+Nav: held by the right Space thumb (Mac and Android). Identical
+        // to Number (L1) plus plain arrows on K M , . (the Gesture arrow spots).
+        // Mission Control / Spaces stay on the Gesture layer (both Spaces) only.
+        // Arrows are and_* morphs: plain arrows on Mac; on Android with the Cmd
+        // thumb (RIGHT_CONTROL) held they become Alt+arrow = line ops.
         NumNav {
             display-name = "Num+Nav";
             bindings = <
 &trans  &kp NUMBER_1  &kp NUMBER_2        &kp NUMBER_3        &kp NUMBER_4         &kp N5       &kp NUMBER_6  &kp N7          &kp N8          &kp N9            &kp N0             &trans
-&trans  &kp TILDE     &mkp MCLK           &kp LC(UP_ARROW)    &mkp LCLK            &mo 2        &mkp MB4      &mkp MB5        &kp UP_ARROW    &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH
-&trans  &kp SLASH     &kp LC(LEFT_ARROW)  &kp LC(DOWN_ARROW)  &kp LC(RIGHT_ARROW)  &kp EQUAL    &none         &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW   &none              &trans
+&trans  &kp TILDE     &mkp MCLK           &mkp RCLK           &mkp LCLK            &mo 2        &mkp MB4      &mkp MB5        &and_up         &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH
+&trans  &kp SLASH     &kp ASTERISK        &kp MINUS           &kp PLUS             &kp EQUAL    &none         &and_left       &and_down       &and_right        &none              &trans
                                           &trans              &trans               &trans       &trans        &trans          &trans
             >;
         };
