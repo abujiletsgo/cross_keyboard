@@ -225,12 +225,13 @@
         //   right outer thumb             : toggles the ANDROID numpad (L6) instead of the Mac one
         //   right mid thumb  (Mac Cmd)    : RIGHT_CONTROL, same as the left Cmd thumb (Mac has two Cmd keys)
         //   right outer thumb             : falls through to &tog 2; L6 overlays it (conditional layer)
+        //   Backspace key                 : and_bspc — Cmd+Backspace = delete line (was only on the combos)
         //   Tab                           : and_tab — Cmd+Tab = Alt+Tab app switcher
         //   Caps Lock                     : Ctrl+Space = switch input language (Mac: Caps Lock switches language)
         Android_Base {
             display-name = "Android";
             bindings = <
-&and_tab         &trans  &trans  &trans  &trans  &trans                            &trans  &trans  &trans  &trans  &trans  &trans
+&and_tab         &trans  &trans  &trans  &trans  &trans                            &trans  &trans  &trans  &trans  &trans  &and_bspc
 &kp LC(SPACE)    &trans  &trans  &trans  &trans  &trans                            &trans  &trans  &trans  &trans  &trans  &trans
 &trans           &trans  &trans  &trans  &trans  &trans                            &trans  &trans  &trans  &trans  &trans  &trans
                         &kp LEFT_CONTROL  &mt RIGHT_CONTROL C_AC_SEARCH  &trans      &trans       &kp RIGHT_CONTROL  &trans

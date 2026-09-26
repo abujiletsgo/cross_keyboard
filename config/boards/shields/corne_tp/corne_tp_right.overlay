@@ -49,11 +49,20 @@
 };
 
 #include <input/processors.dtsi>
+#include <dt-bindings/zmk/input_transform.h>
 
 / {
     trackpad_listener {
         compatible = "zmk,input-listener";
         device = <&trackpad>;
         input-processors = <&zip_xy_scaler 80 100>;
+
+        // Android (L5 on): macOS reverses the scroll itself (Natural scrolling),
+        // Android does not, so invert the wheel here to get the same direction.
+        android_natural_scroll {
+            layers = <5>;
+            input-processors = <&zip_xy_scaler 80 100>,
+                               <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+        };
     };
 };
