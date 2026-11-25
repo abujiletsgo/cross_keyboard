@@ -71,7 +71,7 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        input-processors = <&zip_xy_scaler 29 100>;
+        input-processors = <&zip_xy_scaler 35 100>;
 
         // Must come BEFORE snipe: holding Space (L1/L8) + G (&mo 2) activates
         // both layers at once, and ZMK's input-listener uses first-match-wins.
@@ -80,10 +80,11 @@
             input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_scaler 1 4>;
         };
 
-        // Sniper mode on the clicking layers (L1 Number, L8 Num+Nav).
+        // Sniper mode on the clicking layers (L1 Number, L8 Num+Nav):
+        // 20% slower than the previous 29% normal speed (23/100).
         snipe {
             layers = <1 8>;
-            input-processors = <&zip_xy_scaler 18 100>;
+            input-processors = <&zip_xy_scaler 23 100>;
         };
     };
 };
