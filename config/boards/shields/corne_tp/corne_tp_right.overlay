@@ -55,14 +55,21 @@
     trackpad_listener {
         compatible = "zmk,input-listener";
         device = <&trackpad>;
-        input-processors = <&zip_xy_scaler 80 100>;
+        input-processors = <&zip_xy_scaler 92 100>;
 
         // Android (L5 on): macOS reverses the scroll itself (Natural scrolling),
         // Android does not, so invert the wheel here to get the same direction.
         android_natural_scroll {
             layers = <5>;
-            input-processors = <&zip_xy_scaler 80 100>,
+            input-processors = <&zip_xy_scaler 92 100>,
                                <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+        };
+
+        // Sniper mode on the clicking layers (L1 Number, L8 Num+Nav):
+        // ~40% of the previous 80% speed (32/100) for precise clicking.
+        snipe {
+            layers = <1 8>;
+            input-processors = <&zip_xy_scaler 32 100>;
         };
     };
 };
