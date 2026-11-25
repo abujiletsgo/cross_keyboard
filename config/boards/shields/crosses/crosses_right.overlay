@@ -73,16 +73,17 @@
         device = <&trackball>;
         input-processors = <&zip_xy_scaler 29 100>;
 
-        // Sniper mode on the clicking layers (L1 Number, L8 Num+Nav):
-        // ~40% of the 25% base speed (10/100) for precise clicking.
-        snipe {
-            layers = <1 8>;
-            input-processors = <&zip_xy_scaler 10 100>;
-        };
-
+        // Must come BEFORE snipe: holding Space (L1/L8) + G (&mo 2) activates
+        // both layers at once, and ZMK's input-listener uses first-match-wins.
         scroll_mode {
             layers = <2>;
-            input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_scaler 1 8>;
+            input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_scaler 1 4>;
+        };
+
+        // Sniper mode on the clicking layers (L1 Number, L8 Num+Nav).
+        snipe {
+            layers = <1 8>;
+            input-processors = <&zip_xy_scaler 18 100>;
         };
     };
 };
