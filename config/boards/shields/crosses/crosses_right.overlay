@@ -71,7 +71,14 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        input-processors = <&zip_xy_scaler 25 100>;
+        input-processors = <&zip_xy_scaler 29 100>;
+
+        // Sniper mode on the clicking layers (L1 Number, L8 Num+Nav):
+        // ~40% of the 25% base speed (10/100) for precise clicking.
+        snipe {
+            layers = <1 8>;
+            input-processors = <&zip_xy_scaler 10 100>;
+        };
 
         scroll_mode {
             layers = <2>;
